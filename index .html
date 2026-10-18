@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Afro Itinerante | Catálogo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--preto:#14100d;--terra:#B4502E;--laranja:#E8862A;--verde:#1F3A2A;--verde2:#4F7A5A;--osso:#F6EFE4;
+--serif:"Cormorant Garamond",Georgia,serif;--sans:"Jost","Segoe UI",system-ui,sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{font-size:17.5px;margin:0;background:var(--osso);color:var(--preto);font-family:var(--sans);line-height:1.5}
+a{color:inherit;text-decoration:none}
+svg.i{width:1.25em;height:1.25em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+svg.f{fill:currentColor;stroke:none}
+:focus-visible{outline:2px solid var(--laranja);outline-offset:3px}
+/* topo */
+.top{position:sticky;top:0;z-index:20;background:#14100dee;backdrop-filter:blur(8px);color:#fff;display:flex;align-items:center;gap:6px;padding:8px 16px}
+.logo{font-family:var(--serif);font-style:italic;font-size:1.5rem;font-weight:600;margin-right:auto}
+.top nav{display:none;gap:22px;font-size:1rem;margin-right:18px;color:#e8dccb}
+.ib{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;border:1px solid #ffffff33;color:#fff}
+.ib:hover{border-color:var(--laranja);color:var(--laranja)}
+@media(min-width:900px){.top nav{display:flex}}
+/* botões */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:46px;padding:0 22px;border-radius:30px;background:var(--laranja);color:var(--preto);font-weight:600;font-size:1.05rem;border:0;cursor:pointer;font-family:inherit}
+.btn:hover{background:#f39a3d}
+.btn.o{background:none;color:#fff;border:1px solid #ffffff66}
+.btn.sm{min-height:46px;width:100%;font-size:1rem}
+/* capa */
+.hero{background:var(--preto);color:#fff;padding:36px 20px 40px;display:grid;gap:28px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:auto -20% -40% auto;width:420px;height:420px;border-radius:50%;background:radial-gradient(var(--terra),transparent 68%);opacity:.35;pointer-events:none}
+.tg{font-family:var(--serif);font-style:italic;font-size:1.7rem;color:#d8a46f;margin:0 0 6px}
+.hero h1{font-family:var(--serif);font-weight:600;text-transform:uppercase;font-size:clamp(2.4rem,10vw,4.4rem);line-height:.95;margin:0 0 16px;letter-spacing:.01em}
+.hero p.s{margin:0 0 22px;color:#d9cdbd;max-width:36ch;font-size:1.12rem}
+.hb{display:flex;gap:10px;flex-wrap:wrap}
+.eq{position:relative;z-index:1;aspect-ratio:4/5;max-height:520px;border-radius:200px 200px 14px 14px;overflow:hidden;background:linear-gradient(160deg,#2a1c14,#3b2418);border:1px solid #ffffff22;display:grid;place-items:center;color:#ffffff88;font-family:var(--serif);font-style:italic;font-size:1.3rem;text-align:center}
+.eq img,.ph img{width:100%;height:100%;object-fit:cover;display:block}
+.hl{display:grid;gap:10px;grid-template-columns:repeat(3,1fr);margin-top:6px;position:relative;z-index:1}
+.hl a{display:flex;align-items:center;gap:10px;background:#ffffff12;padding:8px;border-radius:6px;font-size:.95rem;line-height:1.25;min-width:0}
+.hl .th{width:44px;height:52px;border-radius:4px;background:#3b2418;overflow:hidden;flex:none}
+.hl img{width:100%;height:100%;object-fit:cover}
+.hl b{display:block;font-weight:600}
+.hl span{color:#d8a46f;font-size:.85rem}
+@media(max-width:560px){.hl{grid-template-columns:1fr}}
+@media(min-width:860px){.hero{grid-template-columns:1.1fr .9fr;align-items:center;padding:60px max(28px,calc(50% - 560px))}.hl{grid-column:1/-1}}
+/* faixa */
+.mq{background:var(--preto);color:#fff;border-top:1px solid #ffffff22;border-bottom:1px solid #ffffff22;overflow:hidden;white-space:nowrap;padding:10px 0;font-family:var(--serif);font-style:italic;font-size:1.7rem}
+.mq div{display:inline-block;animation:mq 28s linear infinite}
+@keyframes mq{to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.mq div{animation:none}}
+/* seções */
+.sec{padding:54px 0 46px;--ink:var(--preto);--mut:#6e5a4a;--card:#fff;--ln:#e5d6c3;--pr:var(--terra);background:var(--osso);color:var(--ink)}
+.sec.d{--ink:#f3eadc;--mut:#b9a994;--card:#1d1712;--ln:#33291f;--pr:var(--laranja);background:var(--preto)}
+.sec.g{--ink:#f3eadc;--mut:#b7c9bb;--card:#274735;--ln:#3a5b47;--pr:#f0b46a;background:var(--verde)}
+.w{max-width:1120px;margin:0 auto;padding:0 20px}
+.hd{margin-bottom:22px}
+.hd i{font-family:var(--serif);font-size:1.6rem;color:var(--pr);display:block}
+.hd h2{font-family:var(--serif);font-weight:600;font-size:clamp(2.2rem,8vw,3.3rem);text-transform:uppercase;margin:0;line-height:1;letter-spacing:.01em}
+.row{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:2px 20px 14px;margin:0 -20px}
+.row>*{scroll-snap-align:start}
+@media(min-width:900px){.row{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));overflow:visible;padding:0;margin:0}}
+.card{flex:0 0 70%;max-width:300px;background:var(--card);border:1px solid var(--ln);border-radius:4px;overflow:hidden;display:flex;flex-direction:column}
+@media(min-width:900px){.card{max-width:none}}
+.ph{position:relative;aspect-ratio:4/5;background:linear-gradient(155deg,#3b2418,var(--terra));overflow:hidden}
+.ph.sq{aspect-ratio:1}
+.ph span{position:absolute;inset:0;display:grid;place-items:center;color:#ffffffaa;font-size:.8rem;text-align:center;padding:10px}
+.adm .ph{cursor:pointer;outline:2px dashed var(--laranja);outline-offset:-4px}
+.cb{padding:14px 14px 16px;display:flex;flex-direction:column;gap:5px;flex:1}
+.cb h3{font-family:var(--serif);font-size:1.7rem;font-weight:600;margin:0;line-height:1.1}
+.cb p{margin:0;color:var(--mut);font-size:1.02rem;flex:1}
+.pr{color:var(--pr);font-weight:600;font-size:1.1rem;margin:2px 0 8px}
+.note{margin:6px 0 0;color:var(--mut);font-style:italic;font-family:var(--serif);font-size:1.4rem}
+.pg{margin-bottom:34px}
+.pg h3{font-family:var(--serif);font-size:1.95rem;font-weight:600;margin:0 0 12px}
+.pg .row .ph{flex:0 0 46%;max-width:230px;border-radius:4px}
+@media(min-width:900px){.pg .row{display:flex}.pg .row .ph{flex:0 0 220px}}
+.pg .btn{margin-top:4px;width:auto}
+.wide{display:grid;gap:0;background:var(--card);border:1px solid var(--ln);border-radius:4px;overflow:hidden}
+.wide .cb{padding:22px}
+@media(min-width:760px){.wide{grid-template-columns:1fr 1fr}.wide .ph{aspect-ratio:auto;min-height:320px}}
+.news{background:var(--card);border:1px dashed var(--ln);padding:22px;border-radius:4px;display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+.band{background:var(--terra);color:#fff;padding:44px 20px;text-align:center}
+.band h2{font-family:var(--serif);font-size:2.4rem;margin:0 0 8px;font-weight:600}
+.band p{margin:0 auto 18px;max-width:46ch;font-size:1.15rem}
+.band .btn{background:var(--verde);color:#fff}
+.band .btn:hover{background:#2c5440}
+footer{background:var(--preto);color:#cbbca8;padding:34px 20px calc(96px + env(safe-area-inset-bottom,0px));text-align:center;font-size:1.05rem}
+footer .logo{display:block;color:#fff;margin:0 0 6px}
+footer .ibs{display:flex;gap:8px;justify-content:center;margin-top:14px}
+.fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:30;width:58px;height:58px;border-radius:50%;background:var(--laranja);color:var(--preto);display:grid;place-items:center;box-shadow:0 8px 22px #0006}
+.fab svg{width:30px;height:30px}
+.aviso{padding:28px 16px 0}
+.aviso .w{padding:18px 20px;background:#fff;border:1px solid #e5d6c3;border-left:5px solid var(--terra);border-radius:4px;display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between}
+.aviso p{margin:0;flex:1 1 300px;font-size:1.1rem}
+.ab{display:flex;gap:10px;flex-wrap:wrap}
+#soltas .btn.sm{background:#2E5E43;color:#fff}
+#soltas .btn.sm:hover{background:#3b7556}
+.btn.o2{background:none;border:1px solid var(--preto);color:var(--preto)}
+.btn.o2:hover{background:#0000000d}
+dialog{width:min(860px,96vw);max-height:92vh;border:0;border-radius:8px;padding:0;background:var(--osso);color:var(--preto);font-family:var(--sans)}
+dialog::backdrop{background:#000b}
+.dh{position:sticky;top:0;z-index:2;background:var(--preto);color:#fff;padding:10px 16px;display:flex;justify-content:space-between;align-items:center;font-family:var(--serif);font-size:1.7rem}
+.dh button{width:44px;height:44px;border-radius:50%;border:1px solid #ffffff44;background:none;color:#fff;font-size:1.1rem;cursor:pointer}
+.dn{padding:12px 16px;background:#f0e2cf;font-size:1rem}
+#dq{display:block;width:calc(100% - 32px);margin:14px 16px;min-height:46px;padding:0 14px;font:inherit;border:1px solid #cdb99f;border-radius:6px;background:#fff}
+.tgp{padding:0 16px 8px}
+.tgp h3{font-family:var(--serif);font-size:1.7rem;margin:18px 0 4px;color:var(--terra)}
+.tr{display:flex;justify-content:space-between;gap:12px;padding:12px 4px;border-bottom:1px solid #e5d6c3;font-size:1.05rem}
+.tr b{font-weight:600;white-space:nowrap;color:var(--verde)}
+.tr:hover{background:#0000000a}
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--verde);color:#fff;padding:10px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.bar button{min-height:44px;padding:0 14px;border-radius:8px;border:0;font-weight:600;font-family:inherit;cursor:pointer}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<symbol id="wa" viewBox="0 0 24 24"><path d="M12 2.5a9.5 9.5 0 0 0-8.1 14.4L2.600 21.500l4.700-1.200A9.500 9.500 0 1 0 12 2.500z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8.600 7.600c-.4.400-.9 1.200-.3 2.600.7 1.600 2.200 3.200 4 4 1.200.5 2 .3 2.500-.2l.4-.8c.1-.3 0-.5-.3-.7l-1.300-.6c-.3-.1-.5 0-.7.200l-.4.500c-1-.4-2.100-1.500-2.500-2.500l.5-.5c.2-.2.300-.4.100-.7l-.6-1.300c-.2-.3-.5-.2-.8 0z" fill="currentColor"/></symbol>
+<symbol id="ig" viewBox="0 0 24 24"><rect x="3.500" y="3.500" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17" cy="7" r="1.100" fill="currentColor"/></symbol>
+<symbol id="tt" viewBox="0 0 24 24"><path d="M15 3h3.100c.2 2.200 1.600 3.700 3.800 3.900v3.200c-1.400 0-2.700-.4-3.800-1.200v6.300a6 6 0 1 1-6-6v3.300a2.800 2.800 0 1 0 2.800 2.800V3z" fill="currentColor"/></symbol>
+<symbol id="pin" viewBox="0 0 24 24"><path d="M12 21s7-6.200 7-11.500a7 7 0 1 0-14 0C5 14.800 12 21 12 21z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="9.500" r="2.500" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+</svg>
+
+<header class="top">
+  <a class="logo" href="#">Afro Itinerante</a>
+  <nav><a href="#soltas">Tranças soltas</a><a href="#fulanicachos">Fulani braids</a><a href="#raiz">Trança raiz</a><a href="#ghana">Ghana</a><a href="#crochet">Crochet</a><a href="#protocolo">Protocolo</a><a href="#produtos">Produtos</a></nav>
+  <a class="ib" id="ig" target="_blank" rel="noopener" aria-label="Instagram"><svg class="i"><use href="#ig"/></svg></a>
+  <a class="ib" id="tt" target="_blank" rel="noopener" aria-label="TikTok"><svg class="i"><use href="#tt"/></svg></a>
+  <a class="ib" id="mp" target="_blank" rel="noopener" aria-label="Endereço"><svg class="i"><use href="#pin"/></svg></a>
+</header>
+
+<section class="hero">
+  <div>
+    <p class="tg">A assinatura da sua identidade</p>
+    <h1>Salão Afro Itinerante de Brasília</h1>
+    <p class="s">Atendimento afro itinerante em Brasília. Escolha seu modelo e agende pelo WhatsApp.</p>
+    <div class="hb">
+      <a class="btn" id="hw" target="_blank" rel="noopener"><svg class="i"><use href="#wa"/></svg>Agendar</a>
+      <a class="btn o" href="#soltas">Ver catálogo</a>
+    </div>
+  </div>
+  <div class="eq" id="eq"></div>
+  <div class="hl" id="hl"></div>
+</section>
+<div class="mq"><div id="mq"></div></div>
+<aside class="aviso"><div class="w">
+  <p><b>Lembrete:</b> os valores do catálogo já incluem o material. Para saber o valor só da mão de obra, entre em contato.</p>
+  <div class="ab"><button class="btn" id="vt" type="button">Todos os serviços oferecidos</button><a class="btn o2" id="vw" target="_blank" rel="noopener"><svg class="i"><use href="#wa"/></svg>Falar no WhatsApp</a></div>
+</div></aside>
+<div id="app"></div>
+
+<section class="band">
+  <h2>É trancista?</h2>
+  <p>Temos produtos de boa qualidade a pronta entrega. Chame a gente no WhatsApp.</p>
+  <a class="btn" id="bw" target="_blank" rel="noopener"><svg class="i"><use href="#wa"/></svg>Falar no WhatsApp</a>
+</section>
+<footer>
+  <a class="logo" href="#">Afro Itinerante</a>
+  <div id="fa"></div>
+  <div class="ibs"><a class="ib" id="fi" target="_blank" rel="noopener" aria-label="Instagram"><svg class="i"><use href="#ig"/></svg></a><a class="ib" id="ft" target="_blank" rel="noopener" aria-label="TikTok"><svg class="i"><use href="#tt"/></svg></a></div>
+</footer>
+<a class="fab" id="fw" target="_blank" rel="noopener" aria-label="Agendar pelo WhatsApp"><svg class="i"><use href="#wa"/></svg></a>
+<dialog id="dl" aria-label="Todos os serviços oferecidos">
+  <div class="dh"><span>Todos os serviços</span><button id="dx" type="button" aria-label="Fechar">✕</button></div>
+  <div class="dn">Valores com material incluso. Para o valor só da mão de obra, <a id="dw" target="_blank" rel="noopener"><b>fale no WhatsApp</b></a>. Toque num serviço para pedir orçamento.</div>
+  <input id="dq" type="search" placeholder="Buscar serviço (ex.: fulani, box, remoção)" aria-label="Buscar serviço">
+  <div id="tbody"></div>
+</dialog>
+<input type="file" id="fi2" accept="image/*" hidden>
+
+<script>
+/* ===== CONFIGURAÇÃO ===== */
+const CFG={wa:"5561992289669",ig:"https://www.instagram.com/afroitinerantedebrasilia",tt:"https://www.tiktok.com/@afroitinerantedebrasilia",addr:"Brasília - DF"};
+/* itens: [nome, descrição, valor, botão]  A = Agendar | O = Solicitar orçamento */
+const S=[
+{id:"soltas",t:"Tranças soltas",i:"Pontas livres, muito movimento",th:"",it:[
+ ["Box braids","Modelo tradicional com nó na raiz","R$ 450","A"],
+ ["Knotless braids","Modelo confortável, sem nó na raiz","R$ 450","A"],
+ ["Chanel","Modelo curto, com ou sem nó na raiz","R$ 390","O"],
+ ["Boho braids","Feito só com cabelo orgânico","A partir de R$ 500","O"],
+ ["Gypsy braids","Feito com cabelo orgânico e jumbo","A partir de R$ 500","O"],
+ ["Goddess braids","Cabelo orgânico e jumbo. Ideal para trança longa e muito volume","A partir de R$ 520","O"],
+ ["Box braids média","Modelo médio, com ou sem nó na raiz","A partir de R$ 420","O"],
+ ["Chanel colmeia","Modelo curto, com ou sem nó na raiz e finalização em formato de colmeia","A partir de R$ 450","O"],
+ ["Slim braids","Feito com cabelo orgânico liso ou ondulado","A partir de R$ 550","O"],
+ ["Dreads removíveis","Dreads removíveis encapados individualmente","A partir de R$ 390","O"],
+ ["French hair","Feito com o material French, para um resultado natural","A partir de R$ 520","O"],
+ ["Twist braids","Em vez de trançado, o cabelo é enrolado","A partir de R$ 480","O"],
+ ["TPC","Tranças feitas com o próprio cabelo","A partir de R$ 100","O"]]},
+{id:"fulanicachos",t:"Fulani braids",i:"Tranças soltas com trança raiz",th:"d",it:[
+ ["Fulani simples","","A partir de R$ 420","O"],["Meia fulani","","A partir de R$ 420","O"],["Fulani desenhada","","A partir de R$ 450","O"],["Fulani goddess","","A partir de R$ 520","O"]]},
+{id:"raiz",t:"Trança raiz",i:"Desenhos rente ao couro cabeludo",th:"",it:[
+ ["Nagô simples","","A partir de R$ 150","O"],["Nagô trabalhada","","A partir de R$ 150","O"],
+ ["Tiara lateral","","A partir de R$ 70","O"],["Tiara topo","","A partir de R$ 120","O"],["Fulani masculina","Sem cabelo sintético","Sob consulta","O"]]},
+{id:"ghana",t:"Ghana braids",i:"Linhas marcantes e acabamento limpo",th:"d",note:"Todo modelo de trança raiz aceita cachos. Solicite o orçamento.",it:[
+ ["Nagô simples","","A partir de R$ 190","O"],["Nagô detalhada","","A partir de R$ 200","O"],["Nagô com cachos","","A partir de R$ 250","O"],
+ ["Boxeadora simples","","A partir de R$ 150","O"],["Boxeadora detalhada","","A partir de R$ 170","O"],["Gladiadora","","A partir de R$ 190","O"],
+ ["Rabo de cavalo trançado","","A partir de R$ 270","O"],
+ ["Lemonade braids","","A partir de R$ 250","O"]]},
+{id:"crochet",t:"Crochet e entrelace",i:"Cabelo aplicado com técnica",th:"",it:[
+ ["Entrelace","Cabelo telado e costurado","A partir de R$ 450","O"],
+ ["Crochet braids","Cabelo colocado com vários nós","A partir de R$ 390","O"]]}
+];
+const HP=[["hid","Hidratantes",4],["gel","Geleia",3],["oleo","Óleos e manteigas",4]];
+const TR=[["mousse","Mousse"],["agua","Água termal"],["touca","Touca de cetim"],["toucal","Touca de cetim alongada"],["acess","Acessórios"]];
+
+/* ===== PLANILHA: "Nome;valor" (prefixo a = a partir de). Valores COM material incluso ===== */
+const TB=`# Manutenção
+Amarrar / diminuir;60
+Amarrar / diminuir moicano;30
+Manutenção frente toda;260
+Manutenção tiara fulani;150
+Manutenção de tranças soltas (10 tranças);90
+Manutenção de 20 tranças;180
+Trocar box por fulani;290
+Trocar fulani por box;280
+Manutenção meia fulani;110
+# Diversos
+Bantu knots;350
+Crochet;390
+Entrelace;450
+Rabo removível;150
+# Protocolo
+Higienização simples;30
+Protocolo tamanho G;260
+Protocolo tamanho M;230
+Protocolo tamanho P;190
+Adicional de protocolo G;80
+Adicional de protocolo M;70
+Adicional de protocolo P;60
+Adicional de protocolo para moicano;50
+# Fulani
+Fulani com crochet;390
+Fulani masculina sem sintético;
+Fulani com entrelace;420
+Fulani desenhada;450
+Fulani flip over;450
+Fulani goddess;520
+Fulani meio moicano;420
+Fulani P;520
+Fulani simples;420
+Meia fulani;420
+# Trança raiz
+Tiara e finalização;140
+Tiara com sintético;180
+Tiara;120
+Tiara lateral;70
+Trança raiz simples sem sintético;150
+Trança raiz trabalhada sem sintético;200
+Trança raiz com sintético curta;170
+Trança raiz longa com sintético;220
+Trança raiz trabalhada com sintético curta;220
+Trança raiz longa detalhada M;270
+Trança raiz longa detalhada G;250
+Trança raiz longa detalhada P;320
+Trança raiz simples fina;320
+Trança raiz simples extra fina;370
+Trança raiz simples extra fina (10 de cada lado);390
+Trança raiz simples média;250
+Trança raiz simples grossa;190
+Trança raiz simples + grossa;190
+Tiragem trança raiz;70
+# Moicano
+Tiara meio moicano;170
+Moicano trançado;220
+Chanel mullet / low fade;370
+Box braid mullet M;380
+Box braids mullet longo;420
+Box braids no moicano curto;270
+Box braids no moicano médio;320
+Box braids moicano longo;380
+Box braids moicano XL (1C);390
+French hair moicano;320
+Fulani moicano;300
+Goddess no moicano;390
+Gypsy no moicano;390
+Trança curta no moicano com sintético;190
+Trança curta no moicano sem sintético;150
+Trança raiz moicano longa com sintético;190
+Twist longo no moicano (1C);380
+# Tiragem (remoção)
+Tiragem de cabelo G / remoção de dreads;220
+Tiragem de cabelo M;180
+Tiragem de cabelo P;150
+Tiragem de crochet ou entrelace;150
+Tiragem trança raiz G;100
+Tiragem trança raiz M;70
+Tiragem trança raiz P;50
+# Boxeadoras
+Boxeadora;150
+Boxeadora trabalhada;170
+Boxeadora + trabalhada + trança;190
+# Tranças trabalhadas
+Mohak braids;550
+Lemonade fina;320
+Lemonade média;270
+Lemonade grossa;250
+Rabo de cavalo simples;270
+Rabo de cavalo trabalhado;290
+Rabo de cavalo com aplique;350
+Rabo de cavalo com cachos;350
+# Tranças soltas
+Box braids fina;490
+Box braid Chanel (2C);390
+Box braid média;420
+Box braids longa;450
+Box braids ou knotless grossa (1C);450
+Box braids ou knotless grossa (2C);450
+Box braids XXL;570
+Dread aplicação individual;590
+French curls;520
+Goddess Chanel;450
+Goddess média;520
+Goddess longa;580
+Gypsy média / curta;550
+Gypsy longa (trança longa);580
+TPC: tranças com o próprio cabelo - moicano;100
+TPC: tranças com o próprio cabelo P;120
+TPC: tranças com o próprio cabelo M;160
+TPC: tranças com o próprio cabelo G;190
+Twist Chanel;390
+Twist médio;420
+Twist longo;480
+Twist TPC;290
+Boho braids;500
+Slim braids;a550
+Chanel colmeia;a450`;
+const fmt=v=>v===""?"Sob consulta":v[0]==="a"?"A partir de R$ "+v.slice(1):"R$ "+v;
+const norm=s=>s.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase();
+function tb(q){
+  q=norm(q||"");let h="",c="",rows="";
+  const flush=()=>{if(rows)h+=`<section class="tgp"><h3>${esc(c)}</h3>${rows}</section>`;rows=""};
+  TB.trim().split("\n").forEach(l=>{
+    if(l[0]==="#"){flush();c=l.slice(2);return}
+    const [n,v=""]=l.split(";");
+    if(q&&!norm(n+" "+c).includes(q))return;
+    rows+=`<a class="tr" target="_blank" rel="noopener" href="${wa("Olá! Quero um orçamento: "+n)}"><span>${esc(n)}</span><b>${fmt(v)}</b></a>`});
+  flush();$("tbody").innerHTML=h||"<p style='padding:20px'>Nenhum serviço encontrado.</p>";
+}
+const admin=location.search.includes("admin=1");
+let imgs={},paths={};
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const wa=t=>`https://wa.me/${CFG.wa}?text=${encodeURIComponent(t)}`;
+const src=id=>imgs[id]||paths[id]||"";
+const ico=n=>`<svg class="i"><use href="#${n}"/></svg>`;
+const slot=(id,alt,c="")=>`<div class="ph ${c}" data-s="${id}">${src(id)?`<img src="${esc(src(id))}" alt="${esc(alt)}" loading="lazy">`:`<span>${admin?"Toque para enviar a foto":""}</span>`}</div>`;
+const cta=(k,n)=>`<a class="btn sm" target="_blank" rel="noopener" href="${wa((k==="A"?"Olá! Quero agendar: ":"Olá! Quero solicitar um orçamento: ")+n)}">${ico("wa")}${k==="A"?"Agendar":"Solicitar orçamento"}</a>`;
+const head=(i,t)=>`<div class="hd"><i>${i}</i><h2>${t}</h2></div>`;
+
+/* ===== IndexedDB (modo admin) ===== */
+const idb=()=>new Promise((r,j)=>{const q=indexedDB.open("afro2",1);q.onupgradeneeded=()=>q.result.createObjectStore("k");q.onsuccess=()=>r(q.result);q.onerror=j});
+async function ld(){try{const d=await idb();return await new Promise(r=>{const g=d.transaction("k").objectStore("k").get("imgs");g.onsuccess=()=>r(g.result);g.onerror=()=>r()})}catch(e){}}
+async function sv(){try{const d=await idb();d.transaction("k","readwrite").objectStore("k").put(imgs,"imgs")}catch(e){}}
+function comp(f){return new Promise(r=>{const i=new Image();i.onload=()=>{const k=Math.min(1,1200/i.width),c=document.createElement("canvas");c.width=Math.round(i.width*k);c.height=Math.round(i.height*k);c.getContext("2d").drawImage(i,0,0,c.width,c.height);r(c.toDataURL("image/webp",.8))};i.src=URL.createObjectURL(f)})}
+function dl(h,n){const a=document.createElement("a");a.href=h;a.download=n;document.body.appendChild(a);a.click();a.remove()}
+
+/* ===== Montagem da página ===== */
+function render(){
+  $("eq").innerHTML=src("equipe")?`<img src="${esc(src("equipe"))}" alt="Equipe Afro Itinerante">`:"Foto da equipe";
+  if(admin)$("eq").dataset.s="equipe";
+  $("hl").innerHTML=S.slice(0,3).map(s=>`<a href="#${s.id}"><div class="th">${src(s.id+"-0")?`<img src="${esc(src(s.id+"-0"))}" alt="">`:""}</div><div><b>${s.t}</b><span>${s.it[0][2]}</span></div></a>`).join("");
+  $("mq").innerHTML=("Você com o Afro Itinerante &nbsp;·&nbsp; ").repeat(10);
+  let h=S.map(s=>`<section class="sec ${s.th}" id="${s.id}"><div class="w">${head(s.i,s.t)}
+   <div class="row">${s.it.map((x,k)=>`<article class="card">${slot(s.id+"-"+k,x[0])}<div class="cb"><h3>${esc(x[0])}</h3>${x[1]?`<p>${esc(x[1])}</p>`:'<p></p>'}<div class="pr">${x[2]}</div>${cta(x[3],x[0])}</div></article>`).join("")}</div>
+   ${s.note?`<p class="note">${s.note}</p>`:""}</div></section>`).join("");
+  h+=`<section class="sec g" id="protocolo"><div class="w">${head("Cuidado antes e depois das tranças","Protocolo e remoção")}
+   <div class="wide">${slot("protocolo","Protocolo pós-tranças")}<div class="cb"><h3>Protocolo personalizado</h3><p>Tratamento pensado para a porosidade do seu cabelo após o uso prolongado das tranças.</p><div class="pr">Sob orçamento</div>${cta("O","Protocolo pós-tranças")}</div></div>
+   <div class="wide" style="margin-top:20px">${slot("remocao","Remoção de tranças")}<div class="cb"><h3>Remoção de tranças</h3><p>Faça sua remoção com a gente.</p><div class="pr">Sob orçamento</div>${cta("O","Remoção de tranças")}</div></div></div></section>`;
+  h+=`<section class="sec" id="produtos"><div class="w">${head("Para cabelo natural","Nossos produtos")}
+   ${HP.map(([id,n,q])=>`<div class="pg"><h3>${n}</h3><div class="row">${Array.from({length:q},(_,k)=>slot(id+"-"+k,n,"sq")).join("")}</div><a class="btn" target="_blank" rel="noopener" href="${wa("Olá! Quero saber mais sobre: "+n)}">${ico("wa")}Pedir no WhatsApp</a></div>`).join("")}
+   <div class="pg"><h3>Creme de pentear</h3><div class="news"><span>Novidades chegando. Quer ser avisada?</span><a class="btn" target="_blank" rel="noopener" href="${wa("Olá! Me mande as novidades de creme de pentear.")}">${ico("wa")}Me mande novidades</a></div></div>
+   <div class="hd" style="margin-top:40px">${"<i>Para manter suas tranças</i><h2>Produtos para tranças</h2>"}</div>
+   <div class="row">${TR.map(([id,n])=>`<article class="card">${slot(id,n)}<div class="cb"><h3>${n}</h3><p></p>${cta("O",n).replace("Solicitar orçamento","Pedir no WhatsApp")}</div></article>`).join("")}</div></div></section>`;
+  $("app").innerHTML=h;
+  if(admin)document.body.classList.add("adm");
+}
+
+/* ===== Admin (?admin=1): toque em qualquer foto para enviar ===== */
+function adminUI(){
+  const b=document.createElement("div");b.className="bar";
+  b.innerHTML=`<span style="align-self:center">Modo admin: toque numa foto para trocar</span><button id="x" style="background:var(--laranja)">Exportar</button><button id="c" style="background:#8a2c2c;color:#fff">Limpar</button>`;
+  document.body.appendChild(b);
+  let cur="";
+  document.addEventListener("click",e=>{const p=e.target.closest("[data-s]");if(p){e.preventDefault();cur=p.dataset.s;$("fi2").click()}},true);
+  $("fi2").onchange=async e=>{const f=e.target.files[0];if(!f)return;imgs[cur]=await comp(f);await sv();e.target.value="";render()};
+  $("x").onclick=()=>{const p={};Object.keys(imgs).forEach(k=>p[k]="img/"+k+".webp");
+    dl(URL.createObjectURL(new Blob([JSON.stringify({paths:{...paths,...p}},null,1)],{type:"application/json"})),"catalogo.json");
+    Object.keys(imgs).forEach(k=>dl(imgs[k],k+".webp"))};
+  $("c").onclick=async()=>{if(confirm("Apagar todas as fotos deste aparelho?")){imgs={};await sv();render()}};
+}
+
+(async function(){
+  ["ig","fi"].forEach(i=>$(i).href=CFG.ig);["tt","ft"].forEach(i=>$(i).href=CFG.tt);
+  $("mp").href="https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(CFG.addr);
+  $("fa").textContent=CFG.addr;
+  ["hw","fw","bw"].forEach(i=>$(i).href=wa("Olá! Vim pelo catálogo e quero agendar."));
+  ["vw","dw"].forEach(i=>$(i).href=wa("Olá! Quero saber o valor da mão de obra."));
+  $("vt").onclick=()=>$("dl").showModal();$("dx").onclick=()=>$("dl").close();
+  $("dl").addEventListener("click",e=>{if(e.target===$("dl"))$("dl").close()});
+  $("dq").oninput=e=>tb(e.target.value);tb("");
+  try{const r=await fetch("catalogo.json");if(r.ok)paths=(await r.json()).paths||{}}catch(e){}
+  if(admin){imgs=(await ld())||{};adminUI()}
+  render();
+})();
+</script>
+</body>
+</html>
