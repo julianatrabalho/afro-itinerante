@@ -385,20 +385,6 @@ function render(){
 }
 
 /* ===== Admin (?admin=1): toque em qualquer foto para enviar ===== */
-/* ZIP simples (sem compressão) para exportar todas as fotos em um arquivo só */
-const CT=(()=>{const t=[];for(let n=0;n<256;n++){let c=n;for(let k=0;k<8;k++)c=c&1?0xEDB88320^(c>>>1):c>>>1;t[n]=c>>>0}return t})();
-const crc=u=>{let c=-1;for(let i=0;i<u.length;i++)c=CT[(c^u[i])&255]^(c>>>8);return(c^-1)>>>0};
-function zip(fs){
-  const e=new TextEncoder(),parts=[],cen=[];let off=0;
-  fs.forEach(f=>{const nm=e.encode(f.n),c=crc(f.d),n=f.d.length,h=new DataView(new ArrayBuffer(30));
-    h.setUint32(0,0x04034b50,true);h.setUint16(4,20,true);h.setUint16(6,0x0800,true);h.setUint16(12,0x21,true);h.setUint32(14,c,true);h.setUint32(18,n,true);h.setUint32(22,n,true);h.setUint16(26,nm.length,true);
-    parts.push(h.buffer,nm,f.d);
-    const g=new DataView(new ArrayBuffer(46));
-    g.setUint32(0,0x02014b50,true);g.setUint16(4,20,true);g.setUint16(6,20,true);g.setUint16(8,0x0800,true);g.setUint16(14,0x21,true);g.setUint32(16,c,true);g.setUint32(20,n,true);g.setUint32(24,n,true);g.setUint16(28,nm.length,true);g.setUint32(42,off,true);
-    cen.push(g.buffer,nm);off+=30+nm.length+n});
-  const cs=cen.reduce((a,b)=>a+b.byteLength,0),z=new DataView(new ArrayBuffer(22));
-  z.setUint32(0,0x06054b50,true);z.setUint16(8,fs.length,true);z.setUint16(10,fs.length,true);z.setUint32(12,cs,true);z.setUint32(16,off,true);
-  return new Blob([...parts,...cen,z.buffer],{type:"application/zip"})}
 function adminUI(){
   const b=document.createElement("div");b.className="bar";
   b.innerHTML=`<span style="align-self:center">Modo admin: toque numa foto para trocar</span><button id="x" style="background:var(--laranja)">Exportar</button><button id="c" style="background:#8a2c2c;color:#fff">Limpar</button>`;
@@ -407,11 +393,11 @@ function adminUI(){
   document.addEventListener("click",e=>{const p=e.target.closest("[data-s]");if(p){e.preventDefault();cur=p.dataset.s;$("fi2").click()}},true);
   $("fi2").onchange=async e=>{const f=e.target.files[0];if(!f)return;imgs[cur]=await comp(f);await sv();e.target.value="";render()};
   $("x").onclick=async()=>{
-    const ks=Object.keys(imgs);if(!ks.length)return alert("Escolha pelo menos uma foto antes de exportar.");
-    const fs=await Promise.all(ks.map(async k=>({n:k+".jpg",d:new Uint8Array(await (await fetch(imgs[k])).arrayBuffer())})));
-    const f=new File([zip(fs)],"fotos-afro-itinerante.zip",{type:"application/zip"});
-    if(navigator.canShare&&navigator.canShare({files:[f]})){try{await navigator.share({files:[f]});return}catch(e){if(e.name==="AbortError")return}}
-    dl(URL.createObjectURL(f),f.name)};
+    const ks=Object.keys(imgs),p={};ks.forEach(k=>p[k]="img/"+k+"."+ext(imgs[k]));
+    const js=new File([JSON.stringify({paths:{...paths,...p}},null,1)],"catalogo.json",{type:"application/json"});
+    const files=[js,...await Promise.all(ks.map(k=>toFile(imgs[k],k+"."+ext(imgs[k]))))];
+    if(navigator.canShare&&navigator.canShare({files})){try{await navigator.share({files});return}catch(e){if(e.name==="AbortError")return}}
+    for(const f of files){dl(URL.createObjectURL(f),f.name);await new Promise(r=>setTimeout(r,600))}};
   $("c").onclick=async()=>{if(confirm("Apagar todas as fotos deste aparelho?")){imgs={};await sv();render()}};
 }
 
