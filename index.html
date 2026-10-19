@@ -67,6 +67,7 @@ svg.f{fill:currentColor;stroke:none}
 .ph.sq{aspect-ratio:1}
 .ph span{position:absolute;inset:0;display:grid;place-items:center;color:#ffffffaa;font-size:.8rem;text-align:center;padding:10px}
 .adm .ph{cursor:pointer;outline:2px dashed var(--laranja);outline-offset:-4px}
+.adm .eq{cursor:pointer;outline:2px dashed var(--laranja);outline-offset:-8px}
 .cb{padding:14px 14px 16px;display:flex;flex-direction:column;gap:5px;flex:1}
 .cb h3{font-family:var(--serif);font-size:1.7rem;font-weight:600;margin:0;line-height:1.1}
 .cb p{margin:0;color:var(--mut);font-size:1.02rem;flex:1}
@@ -353,12 +354,14 @@ const head=(i,t)=>`<div class="hd"><i>${i}</i><h2>${t}</h2></div>`;
 const idb=()=>new Promise((r,j)=>{const q=indexedDB.open("afro2",1);q.onupgradeneeded=()=>q.result.createObjectStore("k");q.onsuccess=()=>r(q.result);q.onerror=j});
 async function ld(){try{const d=await idb();return await new Promise(r=>{const g=d.transaction("k").objectStore("k").get("imgs");g.onsuccess=()=>r(g.result);g.onerror=()=>r()})}catch(e){}}
 async function sv(){try{const d=await idb();d.transaction("k","readwrite").objectStore("k").put(imgs,"imgs")}catch(e){}}
-function comp(f){return new Promise(r=>{const i=new Image();i.onload=()=>{const k=Math.min(1,1200/i.width),c=document.createElement("canvas");c.width=Math.round(i.width*k);c.height=Math.round(i.height*k);c.getContext("2d").drawImage(i,0,0,c.width,c.height);r(c.toDataURL("image/webp",.8))};i.src=URL.createObjectURL(f)})}
+function comp(f){return new Promise(r=>{const i=new Image();i.onload=()=>{const k=Math.min(1,1200/i.width),c=document.createElement("canvas");c.width=Math.round(i.width*k);c.height=Math.round(i.height*k);c.getContext("2d").drawImage(i,0,0,c.width,c.height);r((()=>{let d=c.toDataURL("image/webp",.8);return d.indexOf("data:image/webp")===0?d:c.toDataURL("image/jpeg",.8)})())};i.src=URL.createObjectURL(f)})}
+const ext=d=>d.indexOf("data:image/webp")===0?"webp":"jpg";
+async function toFile(d,n){const b=await (await fetch(d)).blob();return new File([b],n,{type:b.type})}
 function dl(h,n){const a=document.createElement("a");a.href=h;a.download=n;document.body.appendChild(a);a.click();a.remove()}
 
 /* ===== Montagem da página ===== */
 function render(){
-  $("eq").innerHTML=src("equipe")?`<img src="${esc(src("equipe"))}" alt="Equipe Afro Itinerante">`:"Foto da equipe";
+  $("eq").innerHTML=src("equipe")?`<img src="${esc(src("equipe"))}" alt="Equipe Afro Itinerante">`:(admin?"Toque aqui para enviar a foto da equipe":"Foto da equipe");
   if(admin)$("eq").dataset.s="equipe";
   $("hl").innerHTML=S.slice(0,3).map(s=>`<a href="#${s.id}"><div class="th">${src(s.id+"-0")?`<img src="${esc(src(s.id+"-0"))}" alt="">`:""}</div><div><b>${s.t}</b><span>${s.it[0][2]}</span></div></a>`).join("");
   $("mq").innerHTML=("Você com o Afro Itinerante &nbsp;·&nbsp; ").repeat(10);
@@ -385,9 +388,12 @@ function adminUI(){
   let cur="";
   document.addEventListener("click",e=>{const p=e.target.closest("[data-s]");if(p){e.preventDefault();cur=p.dataset.s;$("fi2").click()}},true);
   $("fi2").onchange=async e=>{const f=e.target.files[0];if(!f)return;imgs[cur]=await comp(f);await sv();e.target.value="";render()};
-  $("x").onclick=()=>{const p={};Object.keys(imgs).forEach(k=>p[k]="img/"+k+".webp");
-    dl(URL.createObjectURL(new Blob([JSON.stringify({paths:{...paths,...p}},null,1)],{type:"application/json"})),"catalogo.json");
-    Object.keys(imgs).forEach(k=>dl(imgs[k],k+".webp"))};
+  $("x").onclick=async()=>{
+    const ks=Object.keys(imgs),p={};ks.forEach(k=>p[k]="img/"+k+"."+ext(imgs[k]));
+    const js=new File([JSON.stringify({paths:{...paths,...p}},null,1)],"catalogo.json",{type:"application/json"});
+    const files=[js,...await Promise.all(ks.map(k=>toFile(imgs[k],k+"."+ext(imgs[k]))))];
+    if(navigator.canShare&&navigator.canShare({files})){try{await navigator.share({files});return}catch(e){if(e.name==="AbortError")return}}
+    for(const f of files){dl(URL.createObjectURL(f),f.name);await new Promise(r=>setTimeout(r,600))}};
   $("c").onclick=async()=>{if(confirm("Apagar todas as fotos deste aparelho?")){imgs={};await sv();render()}};
 }
 
