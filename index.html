@@ -371,9 +371,10 @@ function render(){
   let h=S.map(s=>`<section class="sec ${s.th}" id="${s.id}"><div class="w">${head(s.i,s.t)}
    <div class="row">${s.it.map((x,k)=>`<article class="card">${slot(s.id+"-"+k,x[0])}<div class="cb"><h3>${esc(x[0])}</h3>${x[1]?`<p>${esc(x[1])}</p>`:'<p></p>'}<div class="pr">${x[2]}</div>${cta(x[3],x[0])}</div></article>`).join("")}</div>
    ${s.note?`<p class="note">${s.note}</p>`:""}</div></section>`).join("");
-  h+=`<section class="sec g" id="protocolo"><div class="w">${head("Cuidado antes e depois das tranças","Protocolo e remoção")}
+  h+=`<section class="sec g" id="protocolo"><div class="w">${head("Cuidado antes e depois das tranças","Protocolo, remoção e massoterapia")}
    <div class="wide">${slot("protocolo","Protocolo pós-tranças")}<div class="cb"><h3>Protocolo personalizado</h3><p>Tratamento pensado para a porosidade do seu cabelo após o uso prolongado das tranças.</p><div class="pr">Sob orçamento</div>${cta("O","Protocolo pós-tranças")}</div></div>
-   <div class="wide" style="margin-top:20px">${slot("remocao","Remoção de tranças")}<div class="cb"><h3>Remoção de tranças</h3><p>Faça sua remoção com a gente.</p><div class="pr">Sob orçamento</div>${cta("O","Remoção de tranças")}</div></div></div></section>`;
+   <div class="wide" style="margin-top:20px">${slot("remocao","Remoção de tranças")}<div class="cb"><h3>Remoção de tranças</h3><p>Faça sua remoção com a gente.</p><div class="pr">Sob orçamento</div>${cta("O","Remoção de tranças")}</div></div>
+   <div class="wide" style="margin-top:20px">${slot("massoterapia","Massoterapia")}<div class="cb"><h3>Massoterapia</h3><p></p><div class="pr">Sob orçamento</div>${cta("O","Massoterapia")}</div></div></div></section>`;
   h+=`<section class="sec" id="produtos"><div class="w">${head("Para cabelo natural","Nossos produtos")}
    ${HP.map(([id,n,q])=>`<div class="pg"><h3>${n}</h3><div class="row">${Array.from({length:q},(_,k)=>slot(id+"-"+k,n,"sq")).join("")}</div><a class="btn" target="_blank" rel="noopener" href="${wa("Olá! Quero saber mais sobre: "+n)}">${ico("wa")}Pedir no WhatsApp</a></div>`).join("")}
    <div class="pg"><h3>Creme de pentear</h3><div class="news"><span>Novidades chegando. Quer ser avisada?</span><a class="btn" target="_blank" rel="noopener" href="${wa("Olá! Me mande as novidades de creme de pentear.")}">${ico("wa")}Me mande novidades</a></div></div>
