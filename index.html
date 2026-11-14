@@ -58,10 +58,15 @@ svg.f{fill:currentColor;stroke:none}
 .hd{margin-bottom:22px}
 .hd i{font-family:var(--serif);font-size:1.6rem;color:var(--pr);display:block}
 .hd h2{font-family:var(--serif);font-weight:600;font-size:clamp(2.2rem,8vw,3.3rem);text-transform:uppercase;margin:0;line-height:1;letter-spacing:.01em}
-.row{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:2px 20px 14px;margin:0 -20px}
+.row{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:10px 20px 34px;margin:0 -20px}
 .row>*{scroll-snap-align:start}
-@media(min-width:900px){.row{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));overflow:visible;padding:0;margin:0}}
-.card{flex:0 0 70%;max-width:300px;background:var(--card);border:1px solid var(--ln);border-radius:4px;overflow:hidden;display:flex;flex-direction:column}
+@media(min-width:900px){.row{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:24px;overflow:visible;padding:0;margin:0}}
+.card{flex:0 0 70%;max-width:300px;background:var(--card);border:1px solid var(--ln);border-radius:24px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 22px 40px -18px #5a2a1180,0 6px 14px -6px #5a2a1126;transition:transform .3s ease,box-shadow .3s ease}
+.card .ph{margin:10px 10px 0;border-radius:16px}
+.sec.d .card{box-shadow:0 22px 40px -18px #000,0 6px 14px -6px #0008}
+.sec.g .card{box-shadow:0 22px 40px -18px #04140b,0 6px 14px -6px #0006}
+@media(hover:hover){.card:hover{transform:translateY(-8px)}}
+@media(prefers-reduced-motion:reduce){.card{transition:none}.card:hover{transform:none}}
 @media(min-width:900px){.card{max-width:none}}
 .ph{position:relative;aspect-ratio:4/5;background:linear-gradient(155deg,#3b2418,var(--terra));overflow:hidden}
 .ph.sq{aspect-ratio:1}
@@ -75,13 +80,20 @@ svg.f{fill:currentColor;stroke:none}
 .note{margin:6px 0 0;color:var(--mut);font-style:italic;font-family:var(--serif);font-size:1.4rem}
 .pg{margin-bottom:34px}
 .pg h3{font-family:var(--serif);font-size:1.95rem;font-weight:600;margin:0 0 12px}
-.pg .row .ph{flex:0 0 46%;max-width:230px;border-radius:4px}
+.pg .row .ph{flex:0 0 46%;max-width:230px;border-radius:18px;box-shadow:0 18px 30px -14px #5a2a1180}
 @media(min-width:900px){.pg .row{display:flex}.pg .row .ph{flex:0 0 220px}}
 .pg .btn{margin-top:4px;width:auto}
-.wide{display:grid;gap:0;background:var(--card);border:1px solid var(--ln);border-radius:4px;overflow:hidden}
+.wide{display:grid;gap:0;background:var(--card);border:1px solid var(--ln);border-radius:24px;overflow:hidden;box-shadow:0 22px 40px -18px #000a,0 6px 14px -6px #0006}
+.wide .ph{margin:10px;border-radius:16px}
 .wide .cb{padding:22px}
 @media(min-width:760px){.wide{grid-template-columns:1fr 1fr}.wide .ph{aspect-ratio:auto;min-height:320px}}
-.news{background:var(--card);border:1px dashed var(--ln);padding:22px;border-radius:4px;display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+.news{background:var(--card);border:1px dashed var(--ln);padding:22px;border-radius:24px;display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+/* destaque catálogo visual Canva */
+.canva-box{background:#fff;border:1px solid #e5d6c3;border-radius:24px;padding:28px 24px;margin-top:40px;display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between;box-shadow:0 18px 36px -18px #5a2a1140}
+.canva-box div{flex:1 1 320px}
+.canva-box i{font-family:var(--serif);font-size:1.45rem;color:var(--terra);display:block}
+.canva-box h3{font-family:var(--serif);font-size:1.95rem;font-weight:600;margin:2px 0 6px;line-height:1.1}
+.canva-box p{margin:0;color:#6e5a4a;font-size:1.05rem}
 .band{background:var(--terra);color:#fff;padding:44px 20px;text-align:center}
 .band h2{font-family:var(--serif);font-size:2.4rem;margin:0 0 8px;font-weight:600}
 .band p{margin:0 auto 18px;max-width:46ch;font-size:1.15rem}
@@ -90,6 +102,8 @@ svg.f{fill:currentColor;stroke:none}
 footer{background:var(--preto);color:#cbbca8;padding:34px 20px calc(96px + env(safe-area-inset-bottom,0px));text-align:center;font-size:1.05rem}
 footer .logo{display:block;color:#fff;margin:0 0 6px}
 footer .ibs{display:flex;gap:8px;justify-content:center;margin-top:14px}
+.eco-tip{max-width:600px;margin:24px auto 0;padding:16px 20px;background:#1F3A2A55;border:1px solid #4F7A5A88;border-radius:14px;color:#e8f0ea;font-size:.98rem;line-height:1.45}
+.eco-tip b{color:#a8e6b8;display:block;margin-bottom:4px;font-family:var(--serif);font-size:1.3rem;letter-spacing:.02em}
 .fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:30;width:58px;height:58px;border-radius:50%;background:var(--laranja);color:var(--preto);display:grid;place-items:center;box-shadow:0 8px 22px #0006}
 .fab svg{width:30px;height:30px}
 .aviso{padding:28px 16px 0}
@@ -124,14 +138,15 @@ dialog::backdrop{background:#000b}
 <symbol id="ig" viewBox="0 0 24 24"><rect x="3.500" y="3.500" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17" cy="7" r="1.100" fill="currentColor"/></symbol>
 <symbol id="tt" viewBox="0 0 24 24"><path d="M15 3h3.100c.2 2.200 1.600 3.700 3.800 3.900v3.200c-1.400 0-2.700-.4-3.800-1.200v6.300a6 6 0 1 1-6-6v3.300a2.800 2.800 0 1 0 2.800 2.800V3z" fill="currentColor"/></symbol>
 <symbol id="pin" viewBox="0 0 24 24"><path d="M12 21s7-6.200 7-11.500a7 7 0 1 0-14 0C5 14.800 12 21 12 21z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="9.500" r="2.500" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+<symbol id="ext" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
 </svg>
 
 <header class="top">
   <a class="logo" href="#">Afro Itinerante</a>
   <nav><a href="#soltas">Tranças soltas</a><a href="#fulanicachos">Fulani braids</a><a href="#raiz">Trança raiz</a><a href="#ghana">Ghana</a><a href="#crochet">Crochet</a><a href="#protocolo">Protocolo</a><a href="#produtos">Produtos</a></nav>
-  <a class="ib" id="ig" target="_blank" rel="noopener" aria-label="Instagram"><svg class="i"><use href="#ig"/></svg></a>
-  <a class="ib" id="tt" target="_blank" rel="noopener" aria-label="TikTok"><svg class="i"><use href="#tt"/></svg></a>
-  <a class="ib" id="mp" target="_blank" rel="noopener" aria-label="Endereço"><svg class="i"><use href="#pin"/></svg></a>
+  <a class="ib" id="link-ig" target="_blank" rel="noopener" aria-label="Instagram"><svg class="i"><use href="#ig"/></svg></a>
+  <a class="ib" id="link-tt" target="_blank" rel="noopener" aria-label="TikTok"><svg class="i"><use href="#tt"/></svg></a>
+  <a class="ib" id="link-map" target="_blank" rel="noopener" aria-label="Endereço"><svg class="i"><use href="#pin"/></svg></a>
 </header>
 
 <section class="hero">
@@ -149,7 +164,7 @@ dialog::backdrop{background:#000b}
 </section>
 <div class="mq"><div id="mq"></div></div>
 <aside class="aviso"><div class="w">
-  <p><b>Lembrete:</b> os valores do catálogo já incluem o material. Para saber o valor só da mão de obra, entre em contato.</p>
+  <p><b>Lembrete:</b> Valores com material incluso e alguns serviços sujeitos a alterações de valores. Para saber o valor só da mão de obra, entre em contato.</p>
   <div class="ab"><button class="btn" id="vt" type="button">Todos os serviços oferecidos</button><a class="btn o2" id="vw" target="_blank" rel="noopener"><svg class="i"><use href="#wa"/></svg>Falar no WhatsApp</a></div>
 </div></aside>
 <div id="app"></div>
@@ -162,12 +177,19 @@ dialog::backdrop{background:#000b}
 <footer>
   <a class="logo" href="#">Afro Itinerante</a>
   <div id="fa"></div>
-  <div class="ibs"><a class="ib" id="fi" target="_blank" rel="noopener" aria-label="Instagram"><svg class="i"><use href="#ig"/></svg></a><a class="ib" id="ft" target="_blank" rel="noopener" aria-label="TikTok"><svg class="i"><use href="#tt"/></svg></a></div>
+  <div class="ibs">
+    <a class="ib" id="link-ig-foot" target="_blank" rel="noopener" aria-label="Instagram"><svg class="i"><use href="#ig"/></svg></a>
+    <a class="ib" id="link-tt-foot" target="_blank" rel="noopener" aria-label="TikTok"><svg class="i"><use href="#tt"/></svg></a>
+  </div>
+  <div class="eco-tip">
+    <b>♻️ O que fazer com o material sintético após tirar as tranças?</b>
+    Você sabia que as fibras sintéticas são feitas de plástico e podem ser recicladas? Ao descartar o material usado de forma correta no lixo reciclável (separado do lixo orgânico), você ajuda a proteger o meio ambiente!
+  </div>
 </footer>
 <a class="fab" id="fw" target="_blank" rel="noopener" aria-label="Agendar pelo WhatsApp"><svg class="i"><use href="#wa"/></svg></a>
 <dialog id="dl" aria-label="Todos os serviços oferecidos">
   <div class="dh"><span>Todos os serviços</span><button id="dx" type="button" aria-label="Fechar">✕</button></div>
-  <div class="dn">Valores com material incluso. Para o valor só da mão de obra, <a id="dw" target="_blank" rel="noopener"><b>fale no WhatsApp</b></a>. Toque num serviço para pedir orçamento.</div>
+  <div class="dn">Valores com material incluso e alguns serviços sujeitos a alterações de valores. Para o valor só da mão de obra, <a id="dw" target="_blank" rel="noopener"><b>fale no WhatsApp</b></a>. Toque num serviço para pedir orçamento.</div>
   <input id="dq" type="search" placeholder="Buscar serviço (ex.: fulani, box, remoção)" aria-label="Buscar serviço">
   <div id="tbody"></div>
 </dialog>
@@ -179,8 +201,16 @@ dialog::backdrop{background:#000b}
 <input type="file" id="fi2" accept="image/*" hidden>
 
 <script>
-/* ===== CONFIGURAÇÃO ===== */
-const CFG={wa:"5561992289669",ig:"https://www.instagram.com/afroitinerantedebrasilia",tt:"https://www.tiktok.com/@afroitinerantedebrasilia",addr:"Brasília - DF"};
+/* ===== CONFIGURAÇÃO COM SEUS LINKS ===== */
+const CFG={
+  wa:"5561992289669",
+  ig:"https://www.instagram.com/afroitinerantedebrasilia?xtok=MTcyZ2M1NmNiOXlnOA==",
+  tt:"https://www.tiktok.com/@afroitinerantedebrasilia?_r=1&_t=ZS-9BO5d3Gkb8I",
+  addr:"SCRN 702/703 bloco C loja 49 fundos - Brasília - DF",
+  mapUrl:"https://g.co/kgs/uPBgMTE",
+  canvaUrl:"https://canva.link/vde61ved09bt4n2"
+};
+
 /* itens: [nome, descrição, valor, botão]  A = Agendar | O = Solicitar orçamento */
 const S=[
 {id:"soltas",t:"Tranças soltas",i:"Pontas livres, muito movimento",th:"",it:[
@@ -379,9 +409,12 @@ function render(){
   $("eq").dataset.s="equipe";
   $("hl").innerHTML=S.slice(0,3).map(s=>`<a href="#${s.id}"><div class="th" data-i="${esc(src(s.id+"-0"))}"></div><div><b>${s.t}</b><span>${s.it[0][2]}</span></div></a>`).join("");
   $("mq").innerHTML=("Você com o Afro Itinerante &nbsp;·&nbsp; ").repeat(10);
-  let h=S.map(s=>`<section class="sec ${s.th}" id="${s.id}"><div class="w">${head(s.i,s.t)}
+  let h=S.map((s,idx)=>{
+    const extraCanva=(idx===S.length-1)?`<div class="canva-box"><div><i>Quer ver mais inspirações?</i><h3>Catálogo visual completo</h3><p>Confira mais fotos de modelos, comprimentos, texturas e variações no nosso álbum no Canva.</p></div><a class="btn" href="${CFG.canvaUrl}" target="_blank" rel="noopener">${ico("ext")}Veja mais fotos</a></div>`:"";
+    return `<section class="sec ${s.th}" id="${s.id}"><div class="w">${head(s.i,s.t)}
    <div class="row">${s.it.map((x,k)=>`<article class="card">${slot(s.id+"-"+k,x[0])}<div class="cb"><h3>${esc(x[0])}</h3>${x[1]?`<p>${esc(x[1])}</p>`:'<p></p>'}<div class="pr">${x[2]}</div>${cta(x[3],x[0])}</div></article>`).join("")}</div>
-   ${s.note?`<p class="note">${s.note}</p>`:""}</div></section>`).join("");
+   ${s.note?`<p class="note">${s.note}</p>`:""}${extraCanva}</div></section>`;
+  }).join("");
   h+=`<section class="sec g" id="protocolo"><div class="w">${head("Cuidado antes e depois das tranças","Protocolo, remoção e massoterapia")}
    <div class="wide">${slot("protocolo","Protocolo pós-tranças")}<div class="cb"><h3>Protocolo personalizado</h3><p>Tratamento pensado para a porosidade do seu cabelo após o uso prolongado das tranças.</p><div class="pr">Sob orçamento</div>${cta("O","Protocolo pós-tranças")}</div></div>
    <div class="wide" style="margin-top:20px">${slot("remocao","Remoção de tranças")}<div class="cb"><h3>Remoção de tranças</h3><p>Faça sua remoção com a gente.</p><div class="pr">Sob orçamento</div>${cta("O","Remoção de tranças")}</div></div>
@@ -399,7 +432,6 @@ function render(){
 }
 
 /* ===== Admin (?admin=1): toque em qualquer foto para enviar ===== */
-/* Lê uma foto já enviada ao GitHub (pasta img), reduz e guarda com o nome do espaço certo */
 function compU(u){return new Promise(r=>{const i=new Image();i.onload=()=>{const k=Math.min(1,1200/i.width),c=document.createElement("canvas");c.width=Math.round(i.width*k);c.height=Math.round(i.height*k);c.getContext("2d").drawImage(i,0,0,c.width,c.height);r(c.toDataURL("image/jpeg",.82))};i.onerror=()=>r("");i.src=u})}
 let LISTA=null;
 async function listaFotos(){
@@ -441,8 +473,13 @@ function adminUI(){
 }
 
 (async function(){
-  ["ig","fi"].forEach(i=>$(i).href=CFG.ig);["tt","ft"].forEach(i=>$(i).href=CFG.tt);
-  $("mp").href="https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(CFG.addr);
+  /* Configuração correta de todos os links */
+  $("link-ig").href = CFG.ig;
+  $("link-tt").href = CFG.tt;
+  $("link-map").href = CFG.mapUrl;
+  $("link-ig-foot").href = CFG.ig;
+  $("link-tt-foot").href = CFG.tt;
+
   $("fa").textContent=CFG.addr;
   ["hw","fw","bw"].forEach(i=>$(i).href=wa("Olá! Vim pelo catálogo e quero agendar."));
   ["vw","dw"].forEach(i=>$(i).href=wa("Olá! Quero saber o valor da mão de obra."));
